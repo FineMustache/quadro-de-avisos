@@ -21,3 +21,9 @@ app.use(routerAvisos)
 
 //escutar a porta
 app.listen(3000)
+
+
+//Driver para conexão -> mysql ou mysql2
+//Query Builder -> Knex
+
+//SELECT * FROM avisos

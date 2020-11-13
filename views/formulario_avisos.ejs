@@ -1,11 +1,76 @@
 <%- include('./partials/head', {title:"Vai etim"}) %> 
 <body>
-  <div class="alert alert-primary">
-    <h1>
-      <span class="material-icons">campaign</span>
-      Form de Cadastro
-    </h1>
-  </div>
+
+  <div class="container">
+    <br><br>
+
+    <a href="#"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a><br><br>
+
+    <% if (typeof msg !== 'undefined') { %>
+      <% if (msg.tipo === "sucesso") { %>
+
+        <div class="alert alert-success alert-dismissible fade show p-4" role="alert">
+          <i class="fas fa-check-circle"></i><strong> Sucesso!</strong> <%= msg.corpo %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       
+      <% } %>
+      <% if (msg.tipo === "erro") { %>
+        <div class="alert alert-danger alert-dismissible fade show p-4" role="alert">
+          <i class="fas fa-exclamation-circle"></i><strong> Erro!</strong> <%= msg.corpo %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       
+      <% } %>
+    <% } %>
+
+    <div class="card shadow">
+      <div class="card-header bg-purple text-white pl-5 p-4">
+        <h2 class="card-title"><i class="fas fa-plus-circle"></i> Novo Aviso</h2>
+      </div>
+      <div class="card-body">
+        <form action="/avisos/novo" method="POST">
+
+          <div class="form-group">
+
+            <label for="titulo">Título</label>
+
+            <input id="titulo" name="titulo" type="text" class="form-control" required placeholder="Digite o Título do aviso">
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="data">Data</label>
+
+            <input id="data" name="data" type="date" class="form-control" required>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="Digite o aviso aqui">Mensagem</label>
+
+            <textarea id="mensagem" name="mensagem" cols="40" rows="5" class="form-control" placeholder="Digite o aviso aqui"></textarea>
+
+          </div>
+
+          <div class="form-group text-right">
+
+            <button name="submit" type="submit" class="btn btn-secondary">Limpar</button>
+
+            <button name="submit" type="submit" class="btn btn-primary">Cadastrar</button>
+
+          </div>
+
+        </form>
+      </div><!-- car-body -->
+    </div><!-- card -->
+  </div><!-- container -->
 
   <%- include('./partials/scripts_import') %> 
 </body>

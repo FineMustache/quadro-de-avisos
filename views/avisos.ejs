@@ -1,0 +1,52 @@
+<%- include('./partials/head', {title:"Quadro de Avisos"}) %> 
+<body>
+
+  <%- include('./partials/navbar') %> 
+  <div class="container">
+    <br><br>
+
+    <a href="#"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a><br><br>
+
+    <div class="card shadow">
+      <div class="card-header bg-purple text-white pl-5 p-4">
+        <h2 class="float-left card-title"><i class="fas fa-clipboard-list"></i> Avisos Cadastrados</h2>
+        <a href="/avisos/novo" class="float-right btn btn-outline-light"><i class="fas fa-plus-circle"></i> Novo aviso</a>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Título</th>
+              <th scope="col">Data</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% if (avisos.length < 1) { %>
+             <tr>
+               <td colspan="4" class="text-center">Nenhum aviso cadastrado!</td>
+             </tr>
+            <% } %>
+
+            <% avisos.forEach(aviso => { %>
+              <tr>
+                <th scope="row"> <%= aviso.ID_avisos %> </th>
+                <td><%= aviso.titulo %> </td>
+                <td><%= moment(aviso.Data).format("DD/MM/YYYY") %> </td>
+                <td>
+                  <button class="btn btn-secondary">Excluir</button>
+                  <button class="btn btn-primary">Alterar</button>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div><!-- car-body -->
+    </div><!-- card -->
+  </div><!-- container -->
+
+  <%- include('./partials/scripts_import') %> 
+</body>
+</html>

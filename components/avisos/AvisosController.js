@@ -8,10 +8,8 @@ router.get('/', (req,res)=>{
 })
 
 router.get('/avisos', async (req,res)=>{
-  //res.send("Avisos Cadastrados")
   const avisos = await Avisos.selecionarTodos()
-  //res.send(avisos)
-  res.render('avisos')
+  res.render('avisos',{avisos})
 })
 
 router.get('/avisos/novo', (req,res)=>{

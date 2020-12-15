@@ -6,15 +6,17 @@
   <% if (typeof aviso !== 'undefined') { %>
     <% var titulo = "Alterar Aviso" %>
     <% var rota = "/avisos/editar/"+aviso.ID_aviso %> 
+    <% var iconForm = "fas fa-edit" %> 
   <% } else { %>
     <% var titulo = "Novo Aviso" %> 
     <% var rota = "/avisos/novo" %> 
+    <% var iconForm = "fas fa-plus-circle" %> 
   <% } %> 
 
   <div class="container">
     <br><br>
 
-    <a href="#"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a><br><br>
+    <a href="javascript:history.back()"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a><br><br>
 
     <% if (typeof msg !== 'undefined') { %>
       <% if (msg.tipo === "sucesso") { %>
@@ -40,7 +42,7 @@
 
     <div class="card shadow">
       <div class="card-header bg-purple text-white pl-5 p-4">
-        <h2 class="card-title"><i class="fas fa-plus-circle"></i> <%= titulo %></h2>
+        <h2 class="card-title"><i class="<%= iconForm %> "></i> <%= titulo %></h2>
       </div>
       <div class="card-body">
         <form action="<%= rota %>" method="POST">

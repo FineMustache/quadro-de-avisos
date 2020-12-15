@@ -5,7 +5,7 @@
   <div class="container">
     <br><br>
 
-    <a href="#"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a><br><br>
+    <a href="javascript:history.back()"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a><br><br>
 
     <div class="card shadow">
       <div class="card-header bg-purple text-white pl-5 p-4">
@@ -34,7 +34,7 @@
               <tr>
                 <th scope="row"> <%= aviso.ID_aviso %> </th>
                 <td><%= aviso.titulo %> </td>
-                <td><%= moment(aviso.Data).format("DD/MM/YYYY") %> </td>
+                <td><%= moment(aviso.data).format("DD/MM/YYYY") %> </td>
                 <td>
                   <button class="btn btn-secondary"
                           data-toggle="modal"
